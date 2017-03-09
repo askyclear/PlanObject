@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="76dp"
+    android:paddingTop="4dp"
+    android:paddingRight="16dp">
+    <FrameLayout
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+        <Button
+            android:layout_gravity="center"
+            android:background="@color/red"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:paddingTop="4dp">
+        <TextView
+            android:id="@+id/life_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:fontFamily="Roboto Regular"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/life_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:paddingTop="4dp"
+            android:fontFamily="Roboto Regular"/>
+        <TextView
+            android:id="@+id/life_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:paddingTop="4dp"
+            android:fontFamily="Roboto Regular"/>
+
+    </LinearLayout>
+</LinearLayout>

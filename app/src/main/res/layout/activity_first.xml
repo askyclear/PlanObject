@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlue"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize ="50dp"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_marginBottom="50dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft = "30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/but1"
+            style="@style/ButtonStyle"/>
+        <Button
+            android:id="@+id/but2"
+            style="@style/ButtonStyle"
+            android:onClick="butClick"/>
+        <Button
+            android:id="@+id/but3"
+            style="@style/ButtonStyle"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft = "30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/but4"
+            style="@style/ButtonStyle"/>
+        <Button
+            android:id="@+id/but5"
+            style="@style/ButtonStyle"/>
+        <Button
+            android:id="@+id/but6"
+            style="@style/ButtonStyle"/>
+    </LinearLayout>
+
+</LinearLayout>
