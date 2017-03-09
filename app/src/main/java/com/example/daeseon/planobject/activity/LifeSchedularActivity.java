@@ -1,4 +1,4 @@
-package com.example.daeseon.planobject;
+package com.example.daeseon.planobject.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -15,11 +15,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.daeseon.planobject.R;
+import com.example.daeseon.planobject.Adapter.TabPagerAdapter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by DaeSeon on 2017-03-07.
+ * 생활계획표 메인 부분.
  */
 
 public class LifeSchedularActivity extends FragmentActivity {
@@ -34,6 +38,7 @@ public class LifeSchedularActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lifeschedular);
 
+        //오늘 날짜 set 부분
         long now = System.currentTimeMillis();
         Date date = new Date(now);
         SimpleDateFormat curMonthFormat = new SimpleDateFormat("M.d (EEE)");
@@ -45,6 +50,7 @@ public class LifeSchedularActivity extends FragmentActivity {
         title_life = (TextView)findViewById(R.id.title_life);
         dateLife.setText(strDate);
 
+        //activity 종료 event
         imageLife = (ImageView)findViewById(R.id.image_life);
         imageLife.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,17 +59,24 @@ public class LifeSchedularActivity extends FragmentActivity {
             }
         });
 
+
         frameLayout = (FrameLayout)findViewById(R.id.changed_frame);
 
         dateLife2.setText("365일 중 " + strDayinyear+"일 째\n");
+
+        //view pager를 위한 tabLayout 생성 및 tab 추가 부분.
         tabLayout = (TabLayout)findViewById(R.id.sliding_tabs);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher),0);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher_round),1);
+
+
         viewPager = (ViewPager)findViewById(R.id.pager_life);
 
         addBut = (Button)findViewById(R.id.addBut);
+
         //create TabpagerAdaper adapter
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(this.getSupportFragmentManager(),tabLayout.getTabCount());
+
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 

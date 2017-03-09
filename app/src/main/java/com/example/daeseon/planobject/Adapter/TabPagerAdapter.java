@@ -1,9 +1,11 @@
-package com.example.daeseon.planobject;
+package com.example.daeseon.planobject.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
+
+import com.example.daeseon.planobject.activity.FragmentFirstLife;
+import com.example.daeseon.planobject.activity.FragmentSecondLife;
 
 /**
  * Created by DaeSeon on 2017-03-07.

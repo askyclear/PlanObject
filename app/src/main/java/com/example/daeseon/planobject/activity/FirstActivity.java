@@ -1,4 +1,4 @@
-package com.example.daeseon.planobject;
+package com.example.daeseon.planobject.activity;
 
 import android.app.Activity;
 
@@ -11,12 +11,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.daeseon.planobject.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Created by DaeSeon on 2017-03-07.
+ * 첫번째 메인 엑티비티.
+ */
+
 public class FirstActivity extends Activity {
-    public TextView title_tv;
-    public Button but1,but2,but3,but4,but5,but6;
+    private TextView title_tv;
+    private Button but1,but2,but3,but4,but5,but6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +38,12 @@ public class FirstActivity extends Activity {
 
         BtnOnClickListener btnClick = new BtnOnClickListener();
         but1 = (Button) findViewById(R.id.but1);
+        but2 = (Button) findViewById(R.id.but2);
+        but3 = (Button) findViewById(R.id.but3);
+        but4 = (Button) findViewById(R.id.but4);
+        but5 = (Button) findViewById(R.id.but5);
+        but6 = (Button) findViewById(R.id.but6);
         but1.setText("생활계획표");
-        but2 = (Button) findViewById(R.id.but1);
-        but3 = (Button) findViewById(R.id.but1);
-        but4 = (Button) findViewById(R.id.but1);
-        but5 = (Button) findViewById(R.id.but1);
-        but6 = (Button) findViewById(R.id.but1);
         but1.setOnClickListener(btnClick);
         but2.setOnClickListener(btnClick);
         but3.setOnClickListener(btnClick);
@@ -45,7 +52,7 @@ public class FirstActivity extends Activity {
         but6.setOnClickListener(btnClick);
     }
 
-    class BtnOnClickListener implements Button.OnClickListener {
+    private class BtnOnClickListener implements Button.OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onClick(View view) {
