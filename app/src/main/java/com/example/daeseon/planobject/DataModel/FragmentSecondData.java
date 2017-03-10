@@ -16,12 +16,10 @@ public class FragmentSecondData extends RealmObject {
     private int beforeHour, beforeMin,afterHour,afterMin;
     private int color;
     @PrimaryKey
-    private int id;
-    public static final String FIELD_ID = "id";
-    private static AtomicInteger INTEGER_COUNTER = new AtomicInteger(0);
+    private long id;
     //입력부분
-    public void setId(int id){
-        this.color = id;
+    public void setId(long id){
+        this.id = id;
     }
     public void setColor(int color){
         this.color = color;
@@ -67,10 +65,7 @@ public class FragmentSecondData extends RealmObject {
     public int getColor(){
         return color;
     }
-    public int getId(){
+    public long getId(){
         return id;
-    }
-    public void increment(){
-        this.id = INTEGER_COUNTER.getAndIncrement();
     }
 }

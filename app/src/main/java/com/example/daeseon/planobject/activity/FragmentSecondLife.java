@@ -37,6 +37,7 @@ public class FragmentSecondLife extends Fragment {
     private List<FragmentSecondData> mList = new ArrayList<FragmentSecondData>();
     private RecyclerView recyclerView;
     private Random mRand;
+    private RealmResults<FragmentSecondData> dataList;
     int size;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,9 +75,8 @@ public class FragmentSecondLife extends Fragment {
     }
     //Realm 초기화
     private void setUpRealm(){
-        Realm.init(getContext());
         mRealm = Realm.getDefaultInstance();
-        RealmResults<FragmentSecondData> dataList = getDataList();
+        dataList = getDataList();
         Toast.makeText(getActivity(), ">>>>> Data.size : " +dataList.size(), Toast.LENGTH_SHORT).show();
     }
     //data 정보 리스트 반환
@@ -101,11 +101,9 @@ public class FragmentSecondLife extends Fragment {
             EditText editContent = (EditText)mCustomDialog.findViewById(R.id.dialog_content);
             TimePicker time_before = (TimePicker)mCustomDialog.findViewById(R.id.time_before);
             TimePicker time_after = (TimePicker)mCustomDialog.findViewById(R.id.time_after);
-            RecyclerView dialog_recycler = (RecyclerView)mCustomDialog.findViewById(R.id.dialog_recycler);
             //저장 시작
-            //mRealm.beginTransaction();
-            mCustomDialog.getColorPosition();
-            FragmentSecondData item = new FragmentSecondData();
+            mRealm.beginTransaction();
+            FragmentSecondData item = mRealm.createObject(FragmentSecondData.class,System.currentTimeMillis());
             item.setTitle(editTitle.getText().toString());
             item.setContent(editContent.getText().toString());
             item.setBeforeHour(time_before.getCurrentHour());
@@ -114,10 +112,10 @@ public class FragmentSecondLife extends Fragment {
             item.setAfterMin(time_after.getCurrentMinute());
             item.setColor(mCustomDialog.getColorPosition());
             mList.add(item);
-            //mRealm.commitTransaction();
+            mRealm.commitTransaction();
             //저장 종료
             mCustomDialog.dismiss();
-            Toast.makeText(getActivity(), ">>>>> Data.size : " +mCustomDialog.getColorPosition(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), ">>>>> Data.size : " +dataList.size(), Toast.LENGTH_SHORT).show();
         }
     };
     private View.OnClickListener bt2ClickListner = new View.OnClickListener(){

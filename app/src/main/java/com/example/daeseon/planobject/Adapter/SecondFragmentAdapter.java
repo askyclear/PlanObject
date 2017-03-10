@@ -13,8 +13,6 @@ import com.example.daeseon.planobject.DataModel.FragmentSecondData;
 
 public class SecondFragmentAdapter extends RecyclerView.Adapter<SecondFragmentAdapter.ViewHolder> {
 
-
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;

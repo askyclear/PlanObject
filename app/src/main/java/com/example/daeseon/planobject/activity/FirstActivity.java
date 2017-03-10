@@ -16,6 +16,8 @@ import com.example.daeseon.planobject.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import io.realm.Realm;
+
 /**
  * Created by DaeSeon on 2017-03-07.
  * 첫번째 메인 엑티비티.
@@ -24,11 +26,12 @@ import java.util.Date;
 public class FirstActivity extends Activity {
     private TextView title_tv;
     private Button but1,but2,but3,but4,but5,but6;
+    private Realm mRealm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-
+        Realm.init(getApplicationContext());
         title_tv = (TextView) findViewById(R.id.title_tv);
         long now = System.currentTimeMillis();
         Date date = new Date(now);
